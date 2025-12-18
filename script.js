@@ -32,7 +32,7 @@ document.getElementById("fileinput").addEventListener("change", event => {
         level = new Level(content);
         level.build();
         tileSize = level.tileSize;
-        const sound = new Audio("res/sounds/beginning.wav");
+        const sound = new Audio("beginning.wav");
         sound.play();
 
     }
@@ -299,7 +299,7 @@ class Ghost {
     }
 
     die(){
-        const deathSound = new Audio("res/sounds/pacman_eatghost.wav");
+        const deathSound = new Audio("pacman_eatghost.wav");
         deathSound.play();
         const g = new Ghost(this.x, this.y, this.width, this.height);
         g.destination = getRandomPoint();
@@ -412,7 +412,7 @@ class PowerPellet {
     }
 
     onCollected(){
-        const sound = new Audio("res/sounds/pacman_eatfruit.wav");
+        const sound = new Audio("pacman_eatfruit.wav");
         sound.play();
         ghostsScared = true; // ghosts can now be eaten by pacman.
         setTimeout(() => {ghostsScared = false;}, 10000); // lasts for 10 seconds.
@@ -561,7 +561,7 @@ class Pacman {
     die(){
         if(this.lives-- == 0){
             // play a death sound on game over.
-            const deathSound = new Audio("res/sounds/pacman_death.wav");
+            const deathSound = new Audio("pacman_death.wav");
             deathSound.play();
             gameOver = true;
         }
@@ -616,7 +616,7 @@ class CollisionChecker {
     // so make it a class variable and re-use so there's no overlap.
     
     constructor(dots, walls, ghosts){
-        this.sound = new Audio("res/sounds/chomp.wav");
+        this.sound = new Audio("chomp.wav");
         this.dots = dots;
         this.walls = walls;
         this.ghosts = ghosts;
@@ -764,7 +764,7 @@ function start(){
 
     if(dots.length == 0 && playerScore > 0){
         if(!playedVictorySound){
-            new Audio("res/sounds/pacman_intermission.wav").play();
+            new Audio("pacman_intermission.wav").play();
             playedVictorySound = true;
         }
         gameOver = true;
