@@ -699,7 +699,7 @@ function buildImage(options){
 }
 
 const background = buildImage({
-    src:"res/space.jpg"
+    src:"space.jpg"
 });
 
 // let backGroundAngle = 0;
